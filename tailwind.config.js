@@ -9,7 +9,11 @@ export default {
       colors:{
         "first-color":"#19CFFC",
         "second-color": "#12ECD3",
-      }
+        "third-color": "#00DFEF"
+      },
+      backgroundColor: {
+        'active': "#00DFEF"
+      },
     },
   },
   plugins: [require("daisyui")],
