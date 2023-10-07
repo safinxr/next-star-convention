@@ -16,7 +16,7 @@ const SeeMore = () => {
                     <h2 className='text-3xl md:text-5xl font-black uppercase mt-4 md:mt-6 lg:mt-0'>{services}</h2>
                     <div className="flex justify-between items-center py-4 md:py-6 lg:py-10">
                         <p className='text-xl  md:text-2xl font-bold text-gradient'>Price: {price}</p>
-                        <Link className="text-base md:text-xl border border-[#04DDF1] px-4 py-1.5 rounded-md text-gradient uppercase hover:text-black">More details</Link>
+                        <Link to='contactus' className="text-base md:text-xl border border-[#04DDF1] px-4 py-1.5 rounded-md text-gradient uppercase hover:text-black">contact us</Link>
                     </div>
                 </div>
             </div>
