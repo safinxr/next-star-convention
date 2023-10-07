@@ -3,6 +3,7 @@ import Banner from './Banner';
 import Services from './Services';
 import EventRecord from './EventRecord';
 import Reviews from './Reviews';
+import Footer from './Footer';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <div >
                 <Reviews></Reviews>
             </div>
+            <Footer></Footer>
         </div>
     );
 };
