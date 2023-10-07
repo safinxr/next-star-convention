@@ -54,6 +54,15 @@ const Navbar = () => {
             About us
         </NavLink></li>
         <li className='ms-2 text-base font-medium'><NavLink
+            to="/contactus"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "bg-white text-first-color" : "text-white"
+
+            }
+        >
+           Contact us
+        </NavLink></li>
+        <li className='ms-2 text-base font-medium'><NavLink
             to="/singup"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "bg-white text-first-color" : "text-white"

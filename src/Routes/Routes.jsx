@@ -5,6 +5,8 @@ import SingIn from "../Pages/SingIn/SingIn";
 import SingUp from "../Pages/SingUP/SingUp";
 import ErrorPage from "../Pages/ErrorPage/Errorpage";
 import SeeMore from "../Pages/SeeMore/SeeMore";
+import AboutUs from "../Pages/AboutUs/AboutUs";
+import ContactUs from "../Pages/ContactUs/ContactUs";
 
 
 const router = createBrowserRouter([
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
+            },
+            {
+                path: "/aboutus",
+                element: <AboutUs></AboutUs>,
+            },
+            {
+                path: "/contactus",
+                element: <ContactUs></ContactUs>,
             },
             {
                 path: "/singin",
