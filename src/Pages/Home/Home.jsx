@@ -1,9 +1,14 @@
 import React from 'react';
+import Banner from './Banner';
+import Services from './Services';
 
 const Home = () => {
     return (
         <div>
-            <h1>Home</h1>
+            <Banner></Banner>
+            <main className='max-w-7xl my-32 mx-auto'>
+                <Services></Services>
+            </main>
         </div>
     );
 };
