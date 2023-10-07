@@ -79,7 +79,7 @@ const Navbar = () => {
 
     // bg-gradient-to-r from-first-color to-third-color
     return (
-        <nav className={navBg ? "sticky top-0 bg-gradient-to-r from-first-color to-third-color" : "sticky top-0"}>
+        <nav className={navBg ? " z-10 sticky top-0 bg-gradient-to-r from-first-color to-third-color" : "sticky top-0 z-10"}>
             <div className="navbar max-w-7xl mx-auto px-0">
                 <div className="navbar-start">
                     <div className="dropdown">

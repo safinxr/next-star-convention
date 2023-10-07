@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from './Banner';
 import Services from './Services';
 import EventRecord from './EventRecord';
+import Reviews from './Reviews';
 
 const Home = () => {
     return (
@@ -11,6 +12,9 @@ const Home = () => {
                 <Services></Services>
             </div>
             <EventRecord></EventRecord>
+            <div >
+                <Reviews></Reviews>
+            </div>
         </div>
     );
 };
