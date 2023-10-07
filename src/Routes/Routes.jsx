@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import SingIn from "../Pages/SingIn/SingIn";
 import SingUp from "../Pages/SingUP/SingUp";
 import ErrorPage from "../Pages/ErrorPage/Errorpage";
+import SeeMore from "../Pages/SeeMore/SeeMore";
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
             {
                 path: "/singup",
                 element: <SingUp></SingUp>,
+            },
+            {
+                path: "/seemore/:cardid",
+                loader:()=>fetch('/services.json'),
+                element: <SeeMore></SeeMore>
             },
 
         ]

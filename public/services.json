@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1",
+    "services": "Event planning for optimal use of space in any venue",
+    "image": "https://i.ibb.co/BgCvZwM/img-1.jpg",
+    "price": "$2,500",
+    "description": "Our expert event planners will meticulously plan and execute your event, ensuring optimal use of space in any venue. We'll maximize its potential and create a memorable atmosphere that leaves a lasting impression. From layout design to decor selection, we handle it all. You can trust us to bring your vision to life, turning your event into a seamless, stress-free experience that exceeds your expectations."
+  },
+  {
+    "id": "2",
+    "services": "Audio and vision for reveal and presentations",
+    "image": "https://i.ibb.co/wKvP0gX/img-2.jpg",
+    "price": "$1,800",
+    "description": "Experience crystal-clear audio and stunning visuals during your product reveal and presentations. Our cutting-edge technology ensures your message is heard and seen with precision, making your event truly remarkable. We offer a range of audiovisual solutions to suit your needs. Our dedicated team of technicians will work closely with you to design a custom audiovisual setup that enhances your event's impact and engages your audience."
+  },
+  {
+    "id": "3",
+    "services": "Virtual room styling with lights projections and digital wallpaper",
+    "image": "https://i.ibb.co/8nCWPcN/img-3.jpg",
+    "price": "$1,200",
+    "description": "Immerse your audience in a virtual world with our cutting-edge room styling, complete with mesmerizing light projections and customizable digital wallpaper. Your event will be transformed into a captivating and immersive experience. Let us bring your vision to life. Our team of designers and technicians will collaborate with you to create a unique and immersive environment that tells your brand's story and captivates your attendees."
+  },
+  {
+    "id": "4",
+    "services": "Multimedia and screen content including 3D Projection Mapping",
+    "image": "https://i.ibb.co/m5q8hcN/img-4.jpg",
+    "price": "$2,800",
+    "description": "Elevate your product launch with 3D Projection Mapping, multimedia displays, and captivating screen content. Our innovative solutions will leave your attendees in awe, creating a truly unforgettable event. We craft content tailored to your brand and message. Our multimedia experts will collaborate with you to develop immersive and visually stunning content that resonates with your audience and enhances your product launch."
+  },
+  {
+    "id": "5",
+    "services": "Innovative set design and lighting systems",
+    "image": "https://i.ibb.co/3C5GW28/img-5.jpg",
+    "price": "$2,300",
+    "description": "Our innovative set designs and state-of-the-art lighting systems will transform your event space, creating a visually stunning backdrop for your product launch. Your event will shine with creativity and sophistication. We pay attention to every detail to make your event extraordinary. Our team of designers and lighting experts will collaborate with you to create a visually stunning and unique event space that reflects your brand's identity and captivates your attendees."
+  },
+  {
+    "id": "6",
+    "services": "Live webcasting and video conferencing",
+    "image": "https://i.ibb.co/k8LhFdB/img-6.jpg",
+    "price": "$1,500",
+    "description": "Reach a global audience with our live webcasting and video conferencing services, ensuring that your product launch event is accessible to anyone, anywhere. Connect with your audience like never before. We offer seamless, high-quality streaming and interactive features. Our webcasting and video conferencing solutions will expand your reach and engagement, allowing you to connect with your target audience on a global scale. We provide comprehensive technical support to ensure a smooth and successful virtual event experience."
+  }
+]

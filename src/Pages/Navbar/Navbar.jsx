@@ -7,12 +7,29 @@ const Navbar = () => {
     let { pathname } = useLocation();
     useEffect(() => {
         if (pathname === '/') {
+            console.log("bitore", pathname);
             setNavBg(false)
+
         }
         else {
             setNavBg(true)
         }
     }, [pathname])
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= 80) {
+            setNavBg(true)
+        }
+        else {
+            console.log("-80");
+            console.log(pathname);
+            if (pathname === '/'){
+                console.log('yoyo', pathname);
+               return setNavBg(false)
+            }
+            setNavBg(true)
+        }
+    })  
 
 
 
@@ -56,14 +73,7 @@ const Navbar = () => {
 
     </>
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY >= 80) {
-            setNavBg(true)
-        }
-        else {
-            setNavBg(false)
-        }
-    })
+
 
 
 
