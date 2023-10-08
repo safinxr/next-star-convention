@@ -1,9 +1,23 @@
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContactUs = () => {
-    const formSubmit =e =>{
+    const notify = (x) => toast.success(x, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    });
+
+    const formSubmit = e => {
         e.preventDefault()
-        console.log('sdfal');
+        notify("message sent successfully")
+        e.target.reset();
     }
 
     return (
@@ -18,33 +32,45 @@ const ContactUs = () => {
                     <div className='flex-1 bg-white p-10 rounded-e-xl rounded-s-xl md:rounded-s-none'>
                         <h2 className='font-bold text-4xl text-center mb-6'>Contact</h2>
                         <form onSubmit={formSubmit} className='flex flex-col items-center'>
-                            <input 
-                            required                     
-                            type="text" 
-                            placeholder="Name" 
-                            className="input input-bordered input-info w-full max-w-xs mb-4" />
-                            <input  
-                            required                         
-                            type="email" 
-                            placeholder="Email" 
-                            className="input input-bordered input-info w-full max-w-xs mb-6" />
-                            <input   
-                            required                        
-                            type="text" 
-                            placeholder="Company Name" 
-                            className="input input-bordered input-info w-full max-w-xs mb-6" />
-                            <textarea 
-                            className='input input-bordered input-info w-full h-40 max-w-xs mb-6'
-                            placeholder="Type here your message" 
-                            cols="30" 
-                            rows="5">
-                            </textarea>  
-                            <button type='submit' className='px-8 py-2 border border-first-color rounded-lg hover:bg-gradient-to-r from-first-color to-third-color hover:text-white'>Submit</button>             
+                            <input
+                                required
+                                type="text"
+                                placeholder="Name"
+                                className="input input-bordered input-info w-full max-w-xs mb-4" />
+                            <input
+                                required
+                                type="email"
+                                placeholder="Email"
+                                className="input input-bordered input-info w-full max-w-xs mb-6" />
+                            <input
+                                required
+                                type="text"
+                                placeholder="Company Name"
+                                className="input input-bordered input-info w-full max-w-xs mb-6" />
+                            <textarea
+                                className='input input-bordered input-info w-full h-40 max-w-xs mb-6'
+                                placeholder="Type here your message"
+                                cols="30"
+                                rows="5">
+                            </textarea>
+                            <button type='submit' className='px-8 py-2 border border-first-color rounded-lg hover:bg-gradient-to-r from-first-color to-third-color hover:text-white'>Submit</button>
                         </form>
 
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                position="top-center"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </div>
     );
 };
