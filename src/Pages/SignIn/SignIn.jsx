@@ -10,7 +10,7 @@ const SignIn = () => {
 
     const provider = new GoogleAuthProvider();
     const [errorText, setErrorText] = useState('')
-    const { emailPassSignIn, upProfile} = useContext(ContextAuth)
+    const { emailPassSignIn , shortLoading , setLoading} = useContext(ContextAuth)
     const navigate = useNavigate()
 
 
@@ -29,6 +29,8 @@ const SignIn = () => {
             })
             .catch(error => {
                 setErrorText("error:" + " " + error.message.split("/")[1].split(")")[0]);
+                console.log(error.code);
+                setLoading(false)
             })
 
 
@@ -40,7 +42,9 @@ const SignIn = () => {
                 navigate('/')
 
             }).catch((error) => {
+
                console.log("error:" + " " + error.message.split("/")[1].split(")"))
+               
             });
     }
 
@@ -75,9 +79,9 @@ const SignIn = () => {
                             }
                             <button type='submit'
                                 className='btn font-medium text-base  w-full mt-6  mb-4 rounded-3xl bg-[#407BFF] border-0 text-white hover:bg-[#3d6fdb] active:scale-95'
-                            >Sign in</button>
+                            >{shortLoading?<span className="loading loading-spinner text-neutral"></span>: 'Sign in'}</button>
 
-                            <p className='ms-2 text-start'>Don't have an account? <Link className='text-primary' to='/Signup'>Sign up</Link>
+                            <p className='ms-2 text-start'>Don't have an account? <Link className='text-primary' to='/Signup'>Sing up</Link>
                             </p>
 
 

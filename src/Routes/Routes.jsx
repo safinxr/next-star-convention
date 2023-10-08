@@ -7,6 +7,7 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
+import PrivateRoute from "../Private/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -21,11 +22,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/aboutus",
-                element: <AboutUs></AboutUs>,
+                element:<PrivateRoute> <AboutUs></AboutUs> </PrivateRoute>,
             },
             {
                 path: "/contactus",
-                element: <ContactUs></ContactUs>,
+                element: <PrivateRoute><ContactUs></ContactUs></PrivateRoute>,
             },
             {
                 path: "/signin",
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
             {
                 path: "/seemore/:cardid",
                 loader:()=>fetch('/services.json'),
-                element: <SeeMore></SeeMore>
+                element: <PrivateRoute><SeeMore></SeeMore></PrivateRoute>
             },
 
         ]

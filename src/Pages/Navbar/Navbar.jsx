@@ -9,6 +9,7 @@ const Navbar = () => {
     const { user } = useContext(ContextAuth)
     const [navBg, setNavBg] = useState(false)
     let { pathname } = useLocation();
+
     useEffect(() => {
         if (pathname === '/') {
             setNavBg(false)
@@ -18,7 +19,6 @@ const Navbar = () => {
             setNavBg(true)
         }
     }, [pathname])
-    console.log(user);
 
     window.addEventListener('scroll', () => {
         if (window.scrollY >= 80) {
@@ -38,7 +38,6 @@ const Navbar = () => {
 
         });
     }
-
 
     const navLink = <>
         <li className='ms-2 text-base font-medium'><NavLink
@@ -69,16 +68,16 @@ const Navbar = () => {
         </NavLink></li>
         {user ?
 
-            <div className='flex items-center'>
+            <div className='flex flex-col lg:flex-row lg:items-center '>
 
                 <li onClick={logOut} className='cursor-pointer ms-2 text-base font-medium rounded-lg duration-500 hover:bg-secondary text-white px-4 py-2'>Sign out</li>
-                <div className='flex items-center bg-primary ms-2 ps-2 py-0 rounded-3xl '>
+                <div className='flex items-center justify-between bg-primary ms-2 ps-2 py-0 rounded-3xl '>
                     <li className='ms-2 text-base font-medium text-white'>{user.displayName}</li>
                     {
-                       user.photoURL? <img className='ms-2 w-9 rounded-full' src={user.photoURL} alt="" />:
-                       <div className='ms-2 w-9 h-9 rounded-full bg-[#525D7C] flex justify-center items-center'>
-                            <p className='text-white text-xl'>{user.email.slice(0, 1)}</p>
-                       </div>
+                        user.photoURL ? <img className='ms-2 w-9 rounded-full' src={user.photoURL} alt="" /> :
+                            <div className='ms-2 w-9 h-9 rounded-full bg-[#525D7C] flex justify-center items-center'>
+                                <p className='text-white text-xl'>{user.email.slice(0, 1)}</p>
+                            </div>
                     }
                 </div>
 
@@ -103,7 +102,7 @@ const Navbar = () => {
 
     </>
 
-
+    
 
 
 

@@ -6,35 +6,44 @@ export const ContextAuth = createContext(null)
 
 const ContextData = ({ children }) => {
     const [user, setUser]= useState(null)
+    const [shortLoading, setShortLoading] =useState(true)
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-            } else {
-                setUser(null);
-            }
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
+                setUser(currentUser);
+                setShortLoading(false);
         });
+        return()=>{
+            unSubscribe();
+        }
     }, [])
 
 
     const emailPassSignUp = (email, password) => {
+        setShortLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const upProfile = (name) => {
+        setShortLoading(true)
         return updateProfile(auth.currentUser, { displayName: name })
     }
 
 
 
     const emailPassSignIn = (email, password) => {
+        setShortLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
+    }
+    const setLoading = (x) => {
+        setShortLoading(x)
     }
 
     const globalData = {
         emailPassSignUp,
         emailPassSignIn,
         upProfile,
+        shortLoading, 
+        setLoading,
         user,
 
 
