@@ -7,7 +7,6 @@ const Navbar = () => {
     let { pathname } = useLocation();
     useEffect(() => {
         if (pathname === '/') {
-            console.log("bitore", pathname);
             setNavBg(false)
 
         }
@@ -61,20 +60,20 @@ const Navbar = () => {
            Contact us
         </NavLink></li>
         <li className='ms-2 text-base font-medium'><NavLink
-            to="/singup"
+            to="/signup"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "bg-white text-first-color" : "text-white"
             }
         >
-            Sing up
+            Sign up
         </NavLink></li>
         <li className='ms-2 text-base font-medium'><NavLink
-            to="/singin"
+            to="/signin"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "bg-white text-first-color " : "text-white"
             }
         >
-            Sing in
+            Sign in
         </NavLink></li>
 
 

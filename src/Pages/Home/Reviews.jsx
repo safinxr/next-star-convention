@@ -27,7 +27,7 @@ const Reviews = () => {
                                 {stars}
                             </span>
                         </p>
-                        <img img className=' rounded-full absolute inset-0 flex  justify-center top-56 mx-auto w-20 border-2 border-[#04DDF1] shadow-2xl' src="https://i.ibb.co/nDK2pkw/rv-1.png" alt="" />
+                        <img className=' rounded-full absolute inset-0 flex  justify-center top-56 mx-auto w-20 border-2 border-[#04DDF1] shadow-2xl' src="https://i.ibb.co/nDK2pkw/rv-1.png" alt="" />
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@ const Reviews = () => {
                                 {stars}
                             </span>
                         </p>
-                        <img img className=' rounded-full absolute inset-0 flex  justify-center top-56 mx-auto w-20 border-2 border-[#04DDF1] shadow-2xl' src="https://i.ibb.co/GFLcWWd/rv-2.jpg" alt="" />
+                        <img className=' rounded-full absolute inset-0 flex  justify-center top-56 mx-auto w-20 border-2 border-[#04DDF1] shadow-2xl' src="https://i.ibb.co/GFLcWWd/rv-2.jpg" alt="" />
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@ const Reviews = () => {
                                 {stars}
                             </span>
                         </p>
-                        <img img className=' rounded-full absolute  inset-0 flex  justify-center top-56 mx-auto w-20 border-2 border-[#04DDF1] shadow-2xl ' src="https://i.ibb.co/5n31bgn/rv-3.png" alt="" />
+                        <img className=' rounded-full absolute  inset-0 flex  justify-center top-56 mx-auto w-20 border-2 border-[#04DDF1] shadow-2xl ' src="https://i.ibb.co/5n31bgn/rv-3.png" alt="" />
                     </div>
                 </div>
             </div>
