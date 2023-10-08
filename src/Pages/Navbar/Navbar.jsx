@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Link, NavLink, useLocation, useParams } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { ContextAuth } from '../../Context/ContextData';
+import auth from '../../Firebase/firebase.config';
+import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
 
+    const { user } = useContext(ContextAuth)
     const [navBg, setNavBg] = useState(false)
     let { pathname } = useLocation();
     useEffect(() => {
@@ -14,21 +18,26 @@ const Navbar = () => {
             setNavBg(true)
         }
     }, [pathname])
+    console.log(user);
 
     window.addEventListener('scroll', () => {
         if (window.scrollY >= 80) {
             setNavBg(true)
         }
         else {
-            if (pathname === '/'){
-               return setNavBg(false)
+            if (pathname === '/') {
+                return setNavBg(false)
             }
             setNavBg(true)
         }
-    })  
+    })
 
+    const logOut = () => {
+        signOut(auth).then(() => {
+        }).catch((error) => {
 
-
+        });
+    }
 
 
     const navLink = <>
@@ -56,24 +65,40 @@ const Navbar = () => {
 
             }
         >
-           Contact us
+            Contact us
         </NavLink></li>
-        <li className='ms-2 text-base font-medium'><NavLink
-            to="/signup"
-            className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "bg-white text-first-color" : "text-white"
-            }
-        >
-            Sign up
-        </NavLink></li>
-        <li className='ms-2 text-base font-medium'><NavLink
-            to="/signin"
-            className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "bg-white text-first-color " : "text-white"
-            }
-        >
-            Sign in
-        </NavLink></li>
+        {user ?
+
+            <div className='flex items-center'>
+
+                <li onClick={logOut} className='cursor-pointer ms-2 text-base font-medium rounded-lg duration-500 hover:bg-secondary text-white px-4 py-2'>Sign out</li>
+                <div className='flex items-center bg-primary ms-2 ps-2 py-0 rounded-3xl '>
+                    <li className='ms-2 text-base font-medium text-white'>{user.displayName}</li>
+                    {
+                       user.photoURL? <img className='ms-2 w-9 rounded-full' src={user.photoURL} alt="" />:
+                       <div className='ms-2 w-9 h-9 rounded-full bg-[#525D7C] flex justify-center items-center'>
+                            <p className='text-white text-xl'>{user.email.slice(0, 1)}</p>
+                       </div>
+                    }
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+            : <li className='ms-2 text-base font-medium'><NavLink
+                to="/signin"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "bg-white text-first-color " : "text-white"
+                }
+            >
+                Sign in
+            </NavLink></li>}
+
 
 
     </>
