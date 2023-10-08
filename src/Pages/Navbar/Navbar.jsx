@@ -21,7 +21,6 @@ const Navbar = () => {
         }
         else {
             if (pathname === '/'){
-                console.log('yoyo', pathname);
                return setNavBg(false)
             }
             setNavBg(true)

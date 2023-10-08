@@ -1,13 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import upimg from '../../assets/SingUp.svg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { ContextAuth } from '../../Context/ContextData';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import auth from '../../Firebase/firebase.config';
 
 const SignUp = () => {
-    const {emailPassSignUp} = useContext(ContextAuth)
+    const provider = new GoogleAuthProvider();
+    const [errorText, setErrorText] = useState('')
+    const { emailPassSignUp, upProfile, googleSignIn } = useContext(ContextAuth)
+    const navigate = useNavigate()
 
 
     const notify = (x) => toast.success(x, {
@@ -22,22 +27,56 @@ const SignUp = () => {
     });
 
     const formSubmit = e => {
+        setErrorText('')
         e.preventDefault()
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
+
+        if (password.length < 6) {
+            return setErrorText('password is less than 6 characters')
+        }
+        if (!/[A-Z]/.test(password)) {
+            return setErrorText("password don't have a capital letter")
+        }
+
+        if (!/[^A-Za-z0-9]/.test(password)) {
+            return setErrorText("password don't have a special character")
+        }
         emailPassSignUp(email, password)
-        .then(res=>{
-            notify("Congratulations! Your account has been successfully created")
-            console.log(res.user);
-        })
-        .catch(error=>{
-            notify(error)
-            console.log(error);
-        })
-        
+            .then(res => {
+                upProfile(name)
+                    .then(() => {
+                        notify("Congratulations! Your account has been successfully created")
+
+                        setTimeout(function () {
+                            navigate('/')
+                        }, 1500);
+                    }).catch((error) => {
+                        setErrorText("error:" + " " + error.message.split("/")[1].split(")")[0]);
+                    });
+
+
+
+
+            })
+            .catch(error => {
+                setErrorText("error:" + " " + error.message.split("/")[1].split(")")[0]);
+            })
+
 
     }
+
+    const googleHandel = () => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                navigate('/')
+
+            }).catch((error) => {
+               console.log("error:" + " " + error.message.split("/")[1].split(")"))
+            });
+    }
+
 
 
     return (
@@ -68,10 +107,14 @@ const SignUp = () => {
                                 name='password'
                                 type="password"
                                 placeholder="Password"
-                                className="input input-bordered input-info w-full  mb-6 rounded-3xl" />
-
+                                className="input input-bordered input-info w-full  rounded-3xl" />
+                            {
+                                errorText && <>
+                                    <p className='mt-1 ms-4 text-red-500 text-sm'>{errorText}</p>
+                                </>
+                            }
                             <button type='submit'
-                                className='btn font-medium text-base  w-full mb-4 rounded-3xl bg-[#407BFF] border-0 text-white hover:bg-[#3d6fdb] active:scale-95'
+                                className='btn font-medium text-base  w-full mt-6  mb-4 rounded-3xl bg-[#407BFF] border-0 text-white hover:bg-[#3d6fdb] active:scale-95'
                             >Sign up</button>
 
                             <p className='ms-2 text-start'>Already have an account? <Link className='text-primary' to='/Signin'>Sign in</Link>
@@ -88,6 +131,7 @@ const SignUp = () => {
                         </div>
                         <div className='mx-auto max-w-xs'>
                             <button
+                                onClick={googleHandel}
                                 className='btn bg-transparent font-medium text-base  w-full mb-6 rounded-3xl  border-2 border-[#407BFF] text-[#407BFF]
                                 hover:bg-[#407BFF] hover:text-white hover:border-0 active:scale-95'
                             >Sign up with <FcGoogle className='text-2xl'></FcGoogle></button>
